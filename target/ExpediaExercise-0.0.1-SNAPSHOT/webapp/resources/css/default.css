@@ -1,0 +1,70 @@
+/*
+*Default web-site styling- 2017-02-20
+*/
+
+
+
+
+h1{
+	width:300px;
+margin-right:30px;
+text-align:right;
+}
+
+.btn-submit{
+	margin-left:250px;
+	margin-top: 10px;
+}
+
+label{
+display:inline-block;
+width:200px;
+margin-right:30px;
+text-align:right;
+}
+
+div{
+	padding-top: 10px;
+}
+
+input{
+	 border-bottom-color: #b3b3b3;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #b3b3b3;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #b3b3b3;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: #b3b3b3;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: solid;
+    border-top-width: 1px;`
+}
+
+.deal-table{
+	border-collapse:collapse;
+}
+
+.deal-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+
+.odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+
+.even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}

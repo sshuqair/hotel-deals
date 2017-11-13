@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<!--header: to include other resources and increase re-usability-->
+<ui:include src="header.xhtml"/>
+
+<h:body>
+	<h:form>
+		<p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+		<div>
+			<h1>Hotel deals</h1>
+			<h:outputLabel>City Destination:</h:outputLabel>
+			<p:inputText value="#{tripBean.destinationName}" />
+		</div>
+		
+		<div>			
+			<h:outputLabel>Min Start Date:</h:outputLabel>			
+		  	<p:calendar value="#{tripBean.minTripStartDate}" 
+				showButtonPanel="true"				
+				pattern="yyyy-MM-dd" mask="9999-99-99"
+				navigator="true">
+			</p:calendar>
+						
+			<h:outputLabel>Max Start Date:</h:outputLabel>
+			<p:calendar value="#{tripBean.maxTripStartDate}"
+				showButtonPanel="true" mask="9999-99-99"				
+				pattern="yyyy-MM-dd"
+				navigator="true"/>
+		</div>			
+		<div>
+			<h:outputLabel>Min Star Rating:</h:outputLabel>
+			<p:inputText styleClass="minStarRating" value="#{tripBean.minStarRating}" converterMessage="Min Star Rating - Invalid Numeric Value"></p:inputText>
+		
+			<h:outputLabel>Max Star Rating:</h:outputLabel>			
+			<p:inputText styleClass="maxStarRating" value="#{tripBean.maxStarRating}" converterMessage="Max Star Rating - Invalid Numeric Value"></p:inputText>
+					
+		</div>	
+		<div>
+			<h:outputLabel>Min Total Rate:</h:outputLabel>
+			<p:inputText styleClass="minTotalRate" value="#{tripBean.minTotalRate}" converterMessage="Min Total Rating - Invalid Numeric Value"></p:inputText>
+		
+			<h:outputLabel>Max Total Rate:</h:outputLabel>
+			<p:inputText styleClass="maxTotalRate" value="#{tripBean.maxTotalRate}" converterMessage="Max Total Rating - Invalid Numeric Value"></p:inputText>
+		</div>
+		<div>
+			<h:outputLabel>Min Guest Rating:</h:outputLabel>
+			<p:inputText styleClass="minGuestRating" value="#{tripBean.minGuestRating}" converterMessage="Min Guest Rating - Invalid Numeric Value"></p:inputText>
+		
+			<h:outputLabel>Max Guest Rating:</h:outputLabel>
+			<p:inputText styleClass="maxGuestRating" value="#{tripBean.maxGuestRating}" converterMessage="Max Guest Rating - Invalid Numeric Value"></p:inputText>
+		</div>
+		<br/>
+		
+		<p:commandButton styleClass="btn-submit" value="Get Deals" action="#{tripBean.submit}" onsubmit="return validateFields(this)"></p:commandButton>
+	</h:form>
+
+</h:body>
+</html>
