@@ -19,6 +19,10 @@ I used google/gson to convert JSON url to java objects, then the java objects wi
 
 I used prime faces to display date fields as calendar and to display error validation messages
 
+# What I learned
+
+I have learned how to deal with JSF and how to deal with JSON
+
 # How it can be enhanced
 
 - To get results in the same page under the controls while the user type the destination (intelliSense)
@@ -31,11 +35,7 @@ I used prime faces to display date fields as calendar and to display error valid
 
 - Rating fields must be numeric
 
-# Test-cases Assumptions
-
--Testing is done using JUnit
-
--Rating fields validation is done on the client-side
+- Date format is displayed as yyyy-mm-dd
 
 # Issues:
 
