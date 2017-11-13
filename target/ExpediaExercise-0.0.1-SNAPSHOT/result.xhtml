@@ -4,34 +4,77 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
 <!--header: to include other resources and increase re-usability-->
 <ui:include src="header.xhtml" />
 <!--header-->
 <h:body>
-	<h:dataTable value="#{tripBean.offerDateRangeList}" var="list"
-				styleClass="deal-table"
-    			headerClass="deal-table-header"
-    			rowClasses="odd-row,even-row">
-    			
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Travel Start Date</f:facet>
-    				<!-- row record -->
-    				#{list.travelStratDate}
+	<h:dataTable value="#{tripBean.hotelList}" var="list"
+		styleClass="deal-table" headerClass="deal-table-header"
+		rowClasses="odd-row,even-row">
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">City</f:facet>
+			<!-- row record -->
+    				#{list.getDestination().getCity()}
+    			</h:column>
+		<h:column>
+			<f:facet name="header">Hotel Name</f:facet>
+    				#{list.getHotelInfo().getHotelName()}
+    			</h:column>
+		<h:column>
+			<f:facet name="header">Hotel Destination</f:facet>
+    				#{list.getHotelInfo().getHotelDestination()}
     			</h:column>
 
-    			<h:column>
-    				<f:facet name="header">Travel End Date</f:facet>
-    				#{list.travelEndDate}
+		<h:column>
+			<f:facet name="header">Travel Start</f:facet>
+    				#{list.getOfferDateRange().getTravelStartDate()[0]}-
+   					#{list.getOfferDateRange().getTravelStartDate()[1]}-
+   					#{list.getOfferDateRange().getTravelStartDate()[2]}
+    			</h:column>
+		<h:column>
+			<f:facet name="header">Travel End</f:facet>
+    				#{list.getOfferDateRange().getTravelEndDate()[0]}-
+    				#{list.getOfferDateRange().getTravelEndDate()[1]}-
+    				#{list.getOfferDateRange().getTravelEndDate()[2]}
+    				    				
     			</h:column>
 
-    			<h:column>
-    				<f:facet name="header">Length Of Stay</f:facet>
-    				#{list.length}
+		<h:column>
+			<f:facet name="header">Star Rating</f:facet>
+    				#{list.getHotelInfo().getHotelStarRating()}
+    				
     			</h:column>
-
-	
+		<h:column>
+			<f:facet name="header">Guest Review Rating</f:facet>
+    				#{list.getHotelInfo().getHotelGuestReviewRating()}
+    				
+    			</h:column>
+		<h:column>
+			<f:facet name="header">No. of Views</f:facet>
+    				#{list.getHotelUrgencyInfo().getNumberOfPeopleViewing()}
+    				
+    			</h:column>
+		<h:column>
+			<f:facet name="header">Rooms Left</f:facet>
+    				#{list.getHotelUrgencyInfo().getNumberOfRoomsLeft()}
+    				
+    			</h:column>
+		<h:column>
+			<f:facet name="header">Status</f:facet>
+    				#{list.getHotelUrgencyInfo().getAlmostSoldStatus()}
+    				
+    	</h:column>				
+		<h:column>
+		<f:facet name="header">More Info</f:facet>
+		 <a href="#{list.getHotelUrls().getHotelInfositeUrl().replace('%3A',':').replace('%2F','/')}" target="_blank">
+  				 <h:graphicImage url="#{list.getHotelInfo().getHotelImageUrl()}" alt="more details" title="Click for more details" /> 
+		 </a>		 
+		</h:column>
+		
 	</h:dataTable>
 </h:body>
 </html>
